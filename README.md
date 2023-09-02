@@ -12,5 +12,5 @@ The project was set up as a Maven project using [Spring Initializr](https://star
 - H2 Database: H2 (or Hibernate) is an in-memory database that makes it easier to map Java objects to tables.
 - Validation: Used to implement data integrity. Validation sets standards for user inputs to ensure they meet specific criteria (e.g. in the VideoGame entity in the model package, some columns are marked with @NotBlank and @Size annotations to specificy that a column should not be left null and what minimun and maximum number of characters that a String should have).
 ## Documentation
-## Learning Milestones
 ## Getting Started
+After cloning the repository, it's recommended to use another client such as Postman to see how the functionality of the API itself performs. 
