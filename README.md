@@ -1,4 +1,4 @@
-# RESTful API for a Video Game Shop 🎮🕹️
+# RESTful API for a Video Game Shop
 ### Acknowledgements 
 Thank you to the IT consultants who asked and trusted me to plan and deliver this tutorial to help them further their understanding of Java and RESTful APIs.
 ## Background
