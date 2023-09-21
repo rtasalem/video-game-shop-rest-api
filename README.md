@@ -15,5 +15,6 @@ The project was set up as a Maven project using [Spring Initializr](https://star
 - Postman: An external application used to test the CRUD operations and HTTP requests that make up this REST API.
 ## Documentation
 Swagger documentation has been implemented for the controller of the API. After importing the project as a Maven project and running as a Spring Boot Application, enter the following URL into the browser: http://localhost:8088/swagger-ui/index.html to read and test the documentation.
+## Learning Milestones
 ## Getting Started
 After cloning the repository and importing the API as a Maven project, it's recommended to use another client such as Postman to see how the functionality of the API itself performs. 
