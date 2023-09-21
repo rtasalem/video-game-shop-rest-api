@@ -11,6 +11,9 @@ The project was set up as a Maven project using [Spring Initializr](https://star
 - Spring Data JPA: Helps to simplify interactions with relational databases and enables entities to be defined/modeled through Java classes (hence the VideoGame class in the model package).
 - H2 Database: H2 (or Hibernate) is an in-memory database that makes it easier to map Java objects to tables.
 - Validation: Used to implement data integrity. Validation sets standards for user inputs to ensure they meet specific criteria (e.g. in the VideoGame entity in the model package, some columns are marked with @NotBlank and @Size annotations to specificy that a column should not be left null and what minimun and maximum number of characters that a String should have).
+- Swagger Documentation: Used to document this API, specifically at the controller layer.
+- Postman: An external application used to test the CRUD operations and HTTP requests that make up this REST API.
 ## Documentation
+Swagger documentation has been implemented for the controller of the API. After importing the project as a Maven project and running as a Spring Boot Application, enter the following URL into the browser: http://localhost:8088/swagger-ui/index.html to read and test the documentation.
 ## Getting Started
-After cloning the repository, it's recommended to use another client such as Postman to see how the functionality of the API itself performs. 
+After cloning the repository and importing the API as a Maven project, it's recommended to use another client such as Postman to see how the functionality of the API itself performs. 
