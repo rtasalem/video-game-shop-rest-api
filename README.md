@@ -16,5 +16,7 @@ The project was set up as a Maven project using [Spring Initializr](https://star
 ## Documentation
 Swagger documentation has been implemented for the controller of the API. After importing the project as a Maven project and running as a Spring Boot Application, enter the following URL into the browser: http://localhost:8088/swagger-ui/index.html to read and test the documentation.
 ## Learning Milestones
+Learning to properly implement Swagger documentation for APIs was an essential learning experience. Not only are Swagger docs automated, but also allow for sophisticated presentation of the requests and responses that an API is capable of. This eliminates the need for developers and potentially even clients from having to look through the source code to understand what an API is able to achieve. 
+Another key learning curve from this project was teaching. As this API was developed as part of a live demo to colleauges, it was crucial that I was prepared well in advance of the demo so that colleauges could get the most from the experience. Overall, delivering a live demo was an enjoyable experience that helped to further consolidate my knowledge of REST APIs as a developer. 
 ## Getting Started
 After cloning the repository and importing the API as a Maven project, it's recommended to use another client such as Postman to see how the functionality of the API itself performs. 
