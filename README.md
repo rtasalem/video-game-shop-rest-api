@@ -13,6 +13,7 @@ The project was set up as a Maven project using [Spring Initializr](https://star
 - Validation: Used to implement data integrity. Validation sets standards for user inputs to ensure they meet specific criteria (e.g. in the VideoGame entity in the model package, some columns are marked with @NotBlank and @Size annotations to specificy that a column should not be left null and what minimun and maximum number of characters that a String should have).
 - Swagger Documentation: Used to document this API, specifically at the controller layer.
 - Postman: An external application used to test the CRUD operations and HTTP requests that make up this REST API.
+- SLF4J (Simple Logging Facade for Java): In both the controller and service layers of this API are info logs to declare entry and exit into the methods contained in both of these layers.
 ## Documentation
 Swagger documentation has been implemented for the controller of the API. After importing the project as a Maven project and running as a Spring Boot Application, enter the following URL into the browser: http://localhost:8088/swagger-ui/index.html to read and test the documentation.
 ## Learning Milestones
