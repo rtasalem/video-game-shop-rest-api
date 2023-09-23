@@ -3,6 +3,8 @@ package com.rtasalem.videoGameShopApi.controller;
 import java.net.URI;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -30,12 +32,17 @@ import jakarta.validation.Valid;
 @RequestMapping("/api/v1/games")
 public class VideoGameController {
 	
+	// Creating an instance of the VideoGameService class to access the methods from the service layer.
 	private final VideoGameService videoGameService;
 
+	// The service layer is then injected into the controller layer via constructor injection.
 	public VideoGameController(VideoGameService videoGameService) {
 		super();
 		this.videoGameService = videoGameService;
 	}
+	
+	// Importing the Logger so that information logs can be written for each method.
+	private final static Logger log = LoggerFactory.getLogger(VideoGameController.class);
 	
 	@Operation(
 			summary = "Retrieves a list of all the video games in the database (which is an in-memory datbase).",
@@ -53,6 +60,8 @@ public class VideoGameController {
 	)
 	@GetMapping
 	public ResponseEntity<List<VideoGame>> getAllGames() {
+		log.info("Entering getAllGames()");
+		log.info("Exiting getAllGames()");
 		return ResponseEntity.status(HttpStatus.OK).body(videoGameService.findAllGames());
 	}
 	
@@ -76,6 +85,8 @@ public class VideoGameController {
 	)
 	@GetMapping("/{id}")
 	public ResponseEntity<VideoGame> getGameById(@PathVariable int id) {
+		log.info("Entering getGameById()");
+		log.info("Exiting getGameById()");
 		return ResponseEntity.status(HttpStatus.OK).body(videoGameService.findGameById(id));
 	}
 	
@@ -105,8 +116,10 @@ public class VideoGameController {
 	)
 	@PostMapping
 	public ResponseEntity<VideoGame> addNewGame(@Valid @RequestBody VideoGame videoGame) {
+		log.info("Entering addNewGame()");
 		videoGameService.createNewGame(videoGame);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(videoGame.getId()).toUri();
+		log.info("Exiting addNewGame()");
 		return ResponseEntity.created(location).body(videoGame);		
 	}
 	
@@ -131,6 +144,8 @@ public class VideoGameController {
 	)
 	@PutMapping("/{id}")
 	public ResponseEntity<VideoGame> updateExistingGame(@PathVariable int id, @Valid @RequestBody VideoGame videoGame) {
+		log.info("Entering updateExistingGame()");
+		log.info("Exiting updateExistingGame()");
 		return ResponseEntity.ok(videoGameService.editExistingGame(videoGame, id));
 	}
 	
@@ -155,7 +170,9 @@ public class VideoGameController {
 	)
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Void> deleteGameById(@PathVariable int id) {
+		log.info("Entering deleteGameById()");
 		videoGameService.removeGameById(id);
+		log.info("Exiting deleteGameById()");
 		return ResponseEntity.status(HttpStatus.OK).build();
 	}
 
