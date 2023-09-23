@@ -47,7 +47,7 @@ public class VideoGameService {
 	public VideoGame createNewGame(VideoGame videoGame) {
 		log.info("Entering createNewGame()");
 		if (videoGameRepo.existsByTitle(videoGame.getTitle())) {
-			log.info("Exiting createNewgame()");
+			log.info("Exiting createNewGame()");
 			throw new VideoGameTitleExistsException("A video game with the title of " + videoGame.getTitle() + " already exists.");
 		}
 		log.info("Exiting createNewGame()");
