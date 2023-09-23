@@ -35,7 +35,7 @@ public class VideoGameController {
 	// Creating an instance of the VideoGameService class to access the methods from the service layer.
 	private final VideoGameService videoGameService;
 
-	// The service layer is then injected into the controller layer via constructor injection.
+	// The service layer is injected into the controller layer via constructor injection.
 	public VideoGameController(VideoGameService videoGameService) {
 		super();
 		this.videoGameService = videoGameService;
