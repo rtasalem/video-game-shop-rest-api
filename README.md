@@ -1,6 +1,6 @@
 # RESTful API for a Video Game Shop
 ### Acknowledgements 
-Thank you to the IT consultants who asked and trusted me to plan and deliver this tutorial to help them further their understanding of Java and RESTful APIs.
+Thank you to the IT consultants (Prem, Eitsham, and Madihah) who asked and trusted me to plan and deliver this tutorial to help them further their understanding of Java and RESTful APIs.
 ## Background
 A basic RESTful API I built during a demo & tutorial for IT consultants at FDM Group with various backgrounds in TechOps, data engineering, and cloud engineering. The demo served to teach IT consultants with less experience in software development to understand how RESTful APIs are built and structured. Topics covered included RESTful architecture (controllers, services, repositories, models, and exceptions), HTTP requests (GET, POST, PUT, and DELETE), testing API HTTP requests in [Postman](https://www.postman.com/downloads/). The API utilises CRUD operations to add, retrieve, update, and delete video games from a H2 (in-memory) database.
 ## Libraries & Technologies
