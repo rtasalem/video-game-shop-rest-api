@@ -14,6 +14,8 @@ The project was set up as a Maven project using [Spring Initializr](https://star
 - Swagger Documentation: Used to document this API, specifically at the controller layer.
 - Postman: An external application used to test the CRUD operations and HTTP requests that make up this REST API.
 - SLF4J (Simple Logging Facade for Java): In both the controller and service layers of this API are info logs to declare entry and exit into the methods contained in both of these layers.
+- JUnit: Tests have been written for both the controller and service layers of this API using the JUnit testing framework.
+- Mockito: Mockito is another testing framework also used in the tests created for the API's controller and service layers. This allows for the creation of mock objects to isolate the code that is being tested.
 ## Documentation
 Swagger documentation has been implemented for the controller of the API. After importing the project as a Maven project and running as a Spring Boot Application, enter the following URL into the browser: http://localhost:8088/swagger-ui/index.html to read and test the documentation.
 ## Learning Milestones
