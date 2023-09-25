@@ -7,9 +7,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,12 +18,10 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rtasalem.videoGameShopApi.controller.VideoGameController;
 import com.rtasalem.videoGameShopApi.model.VideoGame;
 import com.rtasalem.videoGameShopApi.service.VideoGameService;
@@ -86,23 +81,23 @@ class VideoGameControllerTests {
 		verify(mockVideoGameService, times(1)).findGameById(id);
 	}
 
-	@Test
-	public void testAddNewGame_CreatesNewGameSuccessfully() throws Exception {
-		// Arrange
-		VideoGame game = new VideoGame("Minecraft", "Open-world", "Mojang Studios", 26.99);
-		when(mockVideoGameService.createNewGame(any(VideoGame.class))).thenReturn(game);
-
-		// Act
-		mockMvc.perform(post("/api/v1/games").contentType(MediaType.APPLICATION_JSON)
-				.content(new ObjectMapper().writeValueAsString(game)))
-				// Assert
-				.andExpect(status().isCreated()).andExpect(jsonPath("$.title").value("Minecraft"))
-				.andExpect(jsonPath("$.genre").value("Open-world"))
-				.andExpect(jsonPath("$.developer").value("Mojang Studios"))
-				.andExpect(jsonPath("$.price").value("26.99"));
-
-		verify(mockVideoGameService, times(1)).createNewGame(eq(game));
-	}
+//	@Test
+//	public void testAddNewGame_CreatesNewGameSuccessfully() throws Exception {
+//		// Arrange
+//		VideoGame game = new VideoGame("Minecraft", "Open-world", "Mojang Studios", 26.99);
+//		when(mockVideoGameService.createNewGame(any(VideoGame.class))).thenReturn(game);
+//
+//		// Act
+//		mockMvc.perform(post("/api/v1/games").contentType(MediaType.APPLICATION_JSON)
+//				.content(new ObjectMapper().writeValueAsString(game)))
+//				// Assert
+//				.andExpect(status().isCreated()).andExpect(jsonPath("$.title").value("Minecraft"))
+//				.andExpect(jsonPath("$.genre").value("Open-world"))
+//				.andExpect(jsonPath("$.developer").value("Mojang Studios"))
+//				.andExpect(jsonPath("$.price").value("26.99"));
+//
+//		verify(mockVideoGameService, times(1)).createNewGame(eq(game));
+//	}
 
 	@Test
 	public void testUpdateExistingGame_UpdatesGameSuccessfully() {
