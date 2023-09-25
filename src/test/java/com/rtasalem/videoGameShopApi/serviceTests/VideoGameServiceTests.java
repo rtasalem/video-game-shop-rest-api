@@ -1,6 +1,7 @@
 package com.rtasalem.videoGameShopApi.serviceTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -14,6 +15,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import com.rtasalem.videoGameShopApi.exception.ResourceNotFoundException;
 import com.rtasalem.videoGameShopApi.model.VideoGame;
 import com.rtasalem.videoGameShopApi.repository.VideoGameDAO;
 import com.rtasalem.videoGameShopApi.service.VideoGameService;
@@ -42,7 +44,7 @@ class VideoGameServiceTests {
 	}
 
 	@Test
-	public void testFindGameById_ReturnsVideoGame() {
+	public void testFindGameById_ReturnsVideoGame_WhenGameExists() {
 		// Arrange
 		int id = 1;
 		VideoGame game = new VideoGame();
@@ -56,4 +58,14 @@ class VideoGameServiceTests {
 		verify(videoGameRepo).findById(id);
 	}
 
+	@Test
+	public void testFindGameById_ThrowsResourceNotFoundException_WhenGameDoesNotExist() {
+		// Arrange
+		int id = 1;
+		when(videoGameRepo.findById(id)).thenReturn(Optional.empty());
+
+		// Act & Assert
+		assertThrows(ResourceNotFoundException.class, () -> videoGameService.findGameById(id));
+		verify(videoGameRepo).findById(id);
+	}
 }
