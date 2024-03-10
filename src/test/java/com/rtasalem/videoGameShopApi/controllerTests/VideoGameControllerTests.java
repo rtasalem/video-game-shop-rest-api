@@ -7,9 +7,6 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,19 +14,24 @@ import java.util.List;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.ArgumentCaptor;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.rtasalem.videoGameShopApi.controller.VideoGameController;
 import com.rtasalem.videoGameShopApi.model.VideoGame;
 import com.rtasalem.videoGameShopApi.service.VideoGameService;
+import org.springframework.http.MediaType;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @ExtendWith(MockitoExtension.class)
 class VideoGameControllerTests {
@@ -90,7 +92,8 @@ class VideoGameControllerTests {
 	public void testAddNewGame_CreatesNewGameSuccessfully() throws Exception {
 		// Arrange
 		VideoGame game = new VideoGame("Minecraft", "Open-world", "Mojang Studios", 26.99);
-		when(mockVideoGameService.createNewGame(any(VideoGame.class))).thenReturn(game);
+		ArgumentCaptor<VideoGame> captor = ArgumentCaptor.forClass(VideoGame.class);
+		when(mockVideoGameService.createNewGame(captor.capture())).thenReturn(game);
 
 		// Act
 		mockMvc.perform(post("/api/v1/games").contentType(MediaType.APPLICATION_JSON)
@@ -101,7 +104,7 @@ class VideoGameControllerTests {
 				.andExpect(jsonPath("$.developer").value("Mojang Studios"))
 				.andExpect(jsonPath("$.price").value("26.99"));
 
-		verify(mockVideoGameService, times(1)).createNewGame(eq(game));
+		verify(mockVideoGameService, times(1)).createNewGame(captor.getValue());
 	}
 
 	@Test
