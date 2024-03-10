@@ -1,10 +1,10 @@
 # RESTful API for a Video Game Shop
 ### Acknowledgements 
-Thank you to the IT consultants (Prem, Etisham, and Madihah) who asked and trusted me to plan and deliver this tutorial to help them further their understanding of Java and RESTful APIs.
-## Background
-A basic RESTful API I built during a demo & tutorial for IT consultants at FDM Group with various backgrounds in TechOps, data engineering, and cloud engineering. The demo served to teach IT consultants with less experience in software development to understand how RESTful APIs are built and structured. Topics covered included RESTful architecture (controllers, services, repositories, models, and exceptions), HTTP requests (GET, POST, PUT, and DELETE), testing API HTTP requests in [Postman](https://www.postman.com/downloads/). The API utilises CRUD operations to add, retrieve, update, and delete video games from a H2 (in-memory) database.
+Thank you to the IT consultants (Prem, Etisham, and Madihah) who asked me to plan and deliver this tutorial to help their understanding of Java and RESTful APIs.
+## Description
+A simple RESTful API I built during a demo & tutorial for IT consultants at FDM Group with various backgrounds in TechOps, data engineering, and cloud engineering. The demo served to teach IT consultants more complex areas of software development to understand how RESTful APIs are built and function. Topics covered included RESTful architecture (controllers, services, repositories, models, and exceptions), HTTP requests (GET, POST, PUT, and DELETE), and testing HTTP requests in [Postman](https://www.postman.com/downloads/). The API utilises CRUD operations to add, retrieve, update, and delete video games from a H2 (in-memory) database.
 ## Libraries & Technologies
-The project was set up as a Maven project using [Spring Initializr](https://start.spring.io/). The following dependencies were added into the project during this initial set up:
+The project was set up as a Maven project using [Spring Initializr](https://start.spring.io/). The following dependencies were added into the project during initial set up:
 - **Spring Boot DevTools:** Makes the development process more efficient by automatically restarting the applications whenever code changes are made.
 - **Spring Web:** Used to handle HTTP requests.
 - **Spring Reactive Web:** An extension of the Spring Framework to allow for increased scalability and responsiveness when building web applications.
@@ -23,6 +23,6 @@ Swagger documentation has been implemented for the controller of the API. After 
 ## Learning Milestones
 Learning to properly implement Swagger documentation for APIs was an essential learning experience. Not only are Swagger docs automated, but also allow for sophisticated presentation of the requests and responses that an API is capable of. This eliminates the need for developers and potentially even clients from having to look through the source code to understand what an API is able to achieve. 
 <br/><br/>
-Another key learning curve from this project was teaching. As this API was developed as part of a live demo to colleagues, it was crucial that I was prepared well in advance of the demo so that my colleagues could get the most from the experience. Overall, delivering a live demo was an enjoyable experience that helped to further consolidate my knowledge of REST APIs as a developer. 
+Another key learning curve from this project was teaching. As this API was developed as part of a live demo to colleagues, I wanted my friends to get the most from the demo that I could offer. Overall, delivering a live demo was an enjoyable experience that helped to further consolidate my own knowledge of REST APIs. 
 ## Getting Started
 After cloning the repository and importing the API as a Maven project, it's recommended to use another client such as Postman to see how the functionality of the API itself performs. 
